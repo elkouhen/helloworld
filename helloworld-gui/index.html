@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>helloworld-gui</title>
+</head>
+<body>
+  <h1>helloworld-gui</h1>
+  <input id="name" type="text" placeholder="Ton prénom" value="World">
+  <button id="greet">Dire bonjour</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById('greet').addEventListener('click', async () => {
+      const name = document.getElementById('name').value || 'World';
+      const result = document.getElementById('result');
+      try {
+        const response = await fetch(`/api/hello/${encodeURIComponent(name)}`);
+        const data = await response.json();
+        result.textContent = data.message;
+      } catch (err) {
+        result.textContent = `Erreur d'appel à l'API : ${err}`;
+      }
+    });
+  </script>
+</body>
+</html>

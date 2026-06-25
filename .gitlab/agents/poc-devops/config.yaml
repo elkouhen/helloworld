@@ -1,0 +1,9 @@
+ci_access:
+  projects:
+    - id: root/helloworld
+
+user_access:
+  access_as:
+    agent: {}
+  projects:
+    - id: root/helloworld

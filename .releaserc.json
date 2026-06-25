@@ -1,0 +1,15 @@
+{
+  "branches": ["main"],
+  "tagFormat": "v${version}",
+  "repositoryUrl": "http://gitlab-webservice-default.gitlab.svc.cluster.local:8181/root/helloworld.git",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/gitlab",
+      {
+        "gitlabUrl": "http://gitlab-webservice-default.gitlab.svc.cluster.local:8181"
+      }
+    ]
+  ]
+}
