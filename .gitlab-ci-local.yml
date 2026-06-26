@@ -1,0 +1,18 @@
+# Surcharges pour gitlab-ci-local (https://github.com/firecow/gitlab-ci-local).
+# Ce fichier est commitable — il utilise un chemin relatif conventionnel.
+# Les secrets vont dans .gitlab-ci-local-secrets.yml (gitignore).
+#
+# Prérequis : poc-devops-ci-templates doit être un dossier voisin :
+#   ../poc-devops-ci-templates/
+
+volumes:
+  # Monte les scripts Python du template CI sans avoir à les cloner depuis GitLab.
+  - ../poc-devops-ci-templates:/ci-scripts:ro
+
+variables:
+  CI_SCRIPTS_DIR: /ci-scripts
+  # En local, GitLab est accessible via l'adresse externe (pas l'URL in-cluster).
+  INTERNAL_GITLAB_HOST: gitlab.192.168.33.100.nip.io
+  DOMAIN: 192.168.33.100.nip.io
+  # SHA court par défaut pour les jobs deploy-dev en local.
+  CI_COMMIT_SHORT_SHA: local
