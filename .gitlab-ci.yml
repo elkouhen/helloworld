@@ -14,4 +14,3 @@ variables:
   MANIFESTS_PROJECT_PATH: root/helloworld-iac
   MANIFESTS_PATH: k8s
   HAS_PREPROD: "true"
-  GITLAB_K8S_AGENT: root/helloworld:poc-devops
