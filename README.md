@@ -38,8 +38,8 @@ sur la machine de développement sans avoir à pousser sur GitLab.
 # macOS
 brew install gitlab-ci-local
 
-# Le dépôt poc-devops-ci-templates doit être un dossier voisin
-ls ../poc-devops-ci-templates/scripts/deploy.py   # doit exister
+# Le dépôt ci-templates doit être un dossier voisin
+ls ../ci-templates/scripts/deploy.py   # doit exister
 ```
 
 ### Configuration
@@ -54,7 +54,7 @@ variables:
 ```
 
 Les jobs qui exécutent les scripts Python du template doivent monter le dépôt
-voisin avec l'option `--volume ../poc-devops-ci-templates:/ci-scripts:ro`.
+voisin avec l'option `--volume ../ci-templates:/ci-scripts:ro`.
 
 Les **secrets** vont dans un fichier gitignore à créer une seule fois :
 
@@ -73,7 +73,7 @@ précharger son cache d'includes depuis le dépôt voisin :
 
 ```bash
 mkdir -p .gitlab-ci-local/includes/github.com/root/ci-templates/v0.11.0
-cp ../poc-devops-ci-templates/gitlab-ci.yml \
+cp ../ci-templates/gitlab-ci.yml \
   .gitlab-ci-local/includes/github.com/root/ci-templates/v0.11.0/gitlab-ci.yml
 ```
 
@@ -102,17 +102,17 @@ Les jobs de **déploiement** fonctionnent directement en local : ils clonent
 ```bash
 # Déployer la version "local" sur dev (utilise CI_COMMIT_SHORT_SHA=local)
 gitlab-ci-local --variables-file .gitlab-ci-local-secrets.yml \
-  --volume ../poc-devops-ci-templates:/ci-scripts:ro \
+  --volume ../ci-templates:/ci-scripts:ro \
   deploy-dev
 
 # Déployer un tag de release sur rec
 gitlab-ci-local --variables-file .gitlab-ci-local-secrets.yml \
-  --volume ../poc-devops-ci-templates:/ci-scripts:ro \
+  --volume ../ci-templates:/ci-scripts:ro \
   --variable CI_COMMIT_TAG=v1.2.3 deploy-rec
 
 # Rollback prod (annule un commit sur la branche main d'helloworld-iac)
 gitlab-ci-local --variables-file .gitlab-ci-local-secrets.yml \
-  --volume ../poc-devops-ci-templates:/ci-scripts:ro \
+  --volume ../ci-templates:/ci-scripts:ro \
   --variable REVERT_SHA=abc1234 rollback-prod
 ```
 

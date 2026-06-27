@@ -8,7 +8,7 @@ plusieurs services, une CI incluse depuis `root/ci-templates` et un déploiement
 GitOps vers le dépôt frère `helloworld-iac`.
 
 La vision globale, le flow de release et les limites du POC sont décrits dans
-`../../poc-devops-platform/docs/prd.md`.
+`../../platform-cicd/docs/prd.md`.
 
 ## Produit attendu
 

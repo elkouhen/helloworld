@@ -24,7 +24,7 @@ Le paramètre `name` est nettoyé côté serveur. Une valeur vide retombe sur
 
 ## Comportement CI/CD
 
-Le dépôt suit le flow défini par `poc-devops-platform` :
+Le dépôt suit le flow défini par `platform-cicd` :
 
 - `main` est l'unique branche longue durée du code ;
 - chaque merge sur `main` déclenche un build mutable et un déploiement dev ;
@@ -47,6 +47,6 @@ Il n'y a pas de version indépendante par service dans ce POC.
 
 `helloworld` dépend de :
 
-- `poc-devops-ci-templates` pour la logique CI partagée ;
+- `ci-templates` pour la logique CI partagée ;
 - `helloworld-iac` pour l'état GitOps des environnements ;
-- `poc-devops-platform` pour GitLab, ArgoCD, le runner et le registry.
+- `platform-cicd` pour GitLab, ArgoCD, le runner et le registry.
