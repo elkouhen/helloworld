@@ -72,9 +72,9 @@ Si `gitlab-ci-local` tente de récupérer `root/ci-templates` depuis GitHub,
 précharger son cache d'includes depuis le dépôt voisin :
 
 ```bash
-mkdir -p .gitlab-ci-local/includes/github.com/root/ci-templates/v0.11.0
+mkdir -p .gitlab-ci-local/includes/github.com/root/ci-templates/v0.11.1
 cp ../ci-templates/gitlab-ci.yml \
-  .gitlab-ci-local/includes/github.com/root/ci-templates/v0.11.0/gitlab-ci.yml
+  .gitlab-ci-local/includes/github.com/root/ci-templates/v0.11.1/gitlab-ci.yml
 ```
 
 ### Jobs disponibles
