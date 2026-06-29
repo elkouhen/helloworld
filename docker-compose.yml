@@ -1,11 +1,9 @@
 services:
   helloworld-gui:
     build: helloworld-gui
-    image: elkouhen/helloworld-gui
     ports:
       - 8080:80
   helloworld-svc:
     build: helloworld-svc
-    image: elkouhen/helloworld-svc
     ports:
       - 8081:8000
