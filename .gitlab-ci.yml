@@ -1,6 +1,6 @@
 include:
   - project: infra/ci-templates
-    ref: v1.13.1
+    ref: $CI_TEMPLATES_REF
     file: /gitlab-ci.yml
 
 variables:
